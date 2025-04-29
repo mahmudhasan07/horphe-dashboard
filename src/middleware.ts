@@ -8,13 +8,13 @@ export function middleware(request: NextRequest) {
   // const adminRoutes = ["/", "/event-creator", "/running-event", "/subscription", "/transaction", "/users"]
 
 
-  // const token = request.cookies.get('accessToken')?.value;
-  // if (!token) {
-  //   return NextResponse.redirect(new URL(homeRoute, request.url));
-  // }
-  // const userInfo = jwtDecode(token as string)
+  const token = request.cookies.get('accessToken')?.value;
+  if (!token) {
+    return NextResponse.redirect(new URL(homeRoute, request.url));
+  }
+  const userInfo = jwtDecode(token as string)
 
-  // const currentPath = request.nextUrl.pathname;
+  const currentPath = request.nextUrl.pathname;
 
   // // Redirect based on role and route
   // if ('role' in userInfo && userInfo?.role !== 'ADMIN' && adminRoutes.some((e) => currentPath.startsWith(e))) {
@@ -26,6 +26,6 @@ export function middleware(request: NextRequest) {
   // return NextResponse.next();
 }
 
-// export const config = {
-//   matcher: ["/", "/event-creator", "/running-event", "/subscription", "/transaction", "/users"], // Apply middleware to the /services route
-// };
+export const config = {
+  matcher: ["/"], // Apply middleware to the /services route
+};
