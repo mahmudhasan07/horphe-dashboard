@@ -37,7 +37,7 @@ const UserDetails: React.FC = () => {
                         :
                         user.image ? (
                             <Image
-                                src={user.image}
+                                src={user?.image}
                                 alt={user.name}
                                 width={80}
                                 height={80}
@@ -56,78 +56,16 @@ const UserDetails: React.FC = () => {
                     </p>
                 </div>
             </div>
+            <div>
+                <h1 className="text-lg font-semibold">About:</h1>
+                <p className="text-gray-700 mt-2">{user.about || "No About"}</p>
+            </div>
+            <div>
+                <h1 className="text-lg font-semibold">ID image</h1>
 
-            {/* Business Profile */}
-            {user.BusinessProfile ? (
-                <div className="mt-6 bg-white shadow-lg rounded-lg p-6">
-                    <h3 className="text-lg font-semibold mb-4">Business Profile</h3>
-                    <div key={user.BusinessProfile.id} className="border-b pb-3 mb-3">
-                        <Image src={user.BusinessProfile?.image} alt="profile images" height={150} width={150} className="rounded-full"></Image>
-                        <h4 className="text-md font-medium">{user.BusinessProfile?.businessName || "No Name"}</h4>
-                        <p className="text-gray-500">{user.BusinessProfile?.businessAddress || "No Address"}</p>
-                        <p className="text-sm text-gray-600">
-                            Open: {user.BusinessProfile?.startDay} - {user.BusinessProfile?.endDay} ({user.BusinessProfile?.startTime} - {user.BusinessProfile?.endTime})
-                        </p>
-                    </div>
-                </div>
-            ) : (
-                <p className="mt-6 text-gray-400">No Business Profile Found</p>
-            )}
-
-            {/* Services */}
-            {user?.BusinessProfile?.Service?.length > 0 ? (
-                <div className="mt-6 bg-white shadow-lg rounded-lg p-6">
-                    <h3 className="text-lg font-semibold mb-4">Services</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {
-                            loading ?
-                                <Loader className="w-20 mx-auto"></Loader>
-                                :
-                                user?.BusinessProfile?.Service.map((service: any) => {
-                                    const averageRating =
-                                        service.Review?.length > 0
-                                            ? (
-                                                service.Review.reduce((sum: number, r: any) => sum + r.rating, 0) /
-                                                service.Review.length
-                                            ).toFixed(1)
-                                            : "No reviews";
-
-                                    return (
-                                        <div key={service.id} className="border rounded-lg p-4 shadow">
-                                            {
-                                                loading ?
-                                                    <Loader className="w-20 mx-auto"></Loader>
-                                                    :
-                                                    service.image ? (
-                                                        <Image
-                                                            src={service.image}
-                                                            alt={service.name}
-                                                            width={200}
-                                                            height={150}
-                                                            className="rounded-lg object-cover w-full h-40"
-                                                        />
-                                                    ) : (
-                                                        <div className="w-full h-40 bg-gray-200 rounded-lg flex items-center justify-center">
-                                                            <span className="text-gray-500">No Image</span>
-                                                        </div>
-                                                    )}
-                                            <h4 className="text-md font-medium mt-2">{service.name || "No Name"}</h4>
-                                            <p className="text-gray-500 text-sm">{service.description || "No Description"}</p>
-                                            <p className="text-gray-700 font-bold">${service.price || "0.00"}</p>
-                                            {service.discountPrice > 0 && (
-                                                <p className="text-green-600 text-sm">
-                                                    Discount Price: ${service.discountPrice}
-                                                </p>
-                                            )}
-                                            <p className="text-yellow-500 text-sm">Rating: {averageRating}</p>
-                                        </div>
-                                    );
-                                })}
-                    </div>
-                </div>
-            ) : (
-                <p className="mt-6 text-gray-400">No Services Found</p>
-            )}
+                <Image src={user.idImage} alt="ID Image" width={200} height={200}></Image>
+            </div>
+            
         </div>
     );
 };

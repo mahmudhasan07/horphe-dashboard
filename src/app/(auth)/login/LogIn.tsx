@@ -67,9 +67,9 @@ const LogIn = () => {
                 </div>
 
                 <h2 className="text-4xl text-center my-4">Hi, Welcome Back! 👋</h2>
-                <p className="text-center text-gray-600 mb-8">
+                {/* <p className="text-center text-gray-600 mb-8">
                     Lets explore <span className='text-primary font-semibold text-lg'>Town'zz</span> diversely
-                </p>
+                </p> */}
 
                 <form onSubmit={handleLogin}>
                     <div className="mb-4">
@@ -128,7 +128,7 @@ const LogIn = () => {
                         </a>
                     </div>
 
-                    <button className="w-full bg-gradient-to-r from-primary to-secondary py-2 text-lg font-semibold text-white rounded-lg">{logIn}</button>
+                    <button className="w-full bg-gradient-to-r from-primary to-primary/90 py-2 text-lg font-semibold text-white rounded-lg">{logIn}</button>
                 </form>
                 {/* Register Link */}
                 

@@ -11,12 +11,12 @@ const LineChart: React.FC = () => {
     {
       name: 'series1',
       data: [31, 40, 28, 51, 42, 109, 100],
-      color: '#DC143C',
+      color: '#3D3D3D',
     },
     {
       name: 'series2',
       data: [11, 32, 45, 32, 34, 52, 41],
-      color: '#DC146C',
+      color: '#3D3D3D',
     },
   ]);
 

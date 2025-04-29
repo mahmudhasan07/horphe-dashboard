@@ -1,10 +1,9 @@
-import BusinessOwner from "./BusinessOwner";
-
+import Needers from "./Needers";
 
 export default function Page() {
     return (
         <div >
-            <BusinessOwner />
+           <Needers></Needers>
         </div>
     );
 }

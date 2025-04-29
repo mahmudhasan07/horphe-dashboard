@@ -23,7 +23,7 @@ const userApi = baseApi.injectEndpoints({
 
         singleUser: build.query({
             query: (id) => ({
-                url: `/admin/${id}`,
+                url: `/user/single/${id}`,
                 method: "GET"
             })
         }),

@@ -25,8 +25,7 @@ const navigation: { label: string, route: string, iconPath: IconType }[] = [
   { label: "Needers", route: "/needers", iconPath: FaUsers },
   { label: "Helpers", route: "/helpers", iconPath: FaUsers },
   { label: "Transaction", route: "/transaction", iconPath: TbTransactionDollar }, 
-  { label: "Complaints", route: "/compla", iconPath: TbTransactionDollar }, 
-
+  { label: "Complains", route: "/complains", iconPath: TbTransactionDollar }, 
 ];
 
 const NavbarSlider = ({ isOpen, toggleSidebar }: SidebarProps) => {

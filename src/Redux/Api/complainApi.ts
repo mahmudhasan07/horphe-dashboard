@@ -3,8 +3,8 @@ import baseApi from "./baseApi";
 const complains = baseApi.injectEndpoints({
     endpoints: (build) => ({
         userComplain: build.query({
-            query: ({ lang, role }) => ({
-                url: `complain/all?language=${lang}&role=${role}`,
+            query: () => ({
+                url: `/complain`,
                 method: 'GET'
             }),
             providesTags: ["complains"]

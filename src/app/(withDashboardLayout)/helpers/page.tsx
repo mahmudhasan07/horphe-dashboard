@@ -1,9 +1,10 @@
-import Users from "./Users";
+import Helpers from "./Helpers";
+
 
 export default function Page() {
     return (
         <div >
-           <Users></Users>
+            <Helpers />
         </div>
     );
 }
