@@ -12,6 +12,7 @@ import { UserInterFace } from '@/Interfaces/InterFaces';
 import ShowToastify from '@/utils/ShowToastify';
 import { useRouter } from 'next/navigation';
 import TableLoader from '../Loader/TableLoader';
+import { ToastContainer } from 'react-toastify';
 
 const UserTable = ({ userData, isLoading, serial }: { userData: UserInterFace[], isLoading: boolean, serial: number }) => {
     const route = useRouter()
@@ -25,6 +26,7 @@ const UserTable = ({ userData, isLoading, serial }: { userData: UserInterFace[],
 
             return ShowToastify({ error: "Unsuccessful to block or active the user" })
         }
+        ShowToastify({ success: "User status updated successfully" })
     }
 
     return (
@@ -54,7 +56,7 @@ const UserTable = ({ userData, isLoading, serial }: { userData: UserInterFace[],
                                         <td className="px-4 text-nowrap py-2">{item.email}</td>
                                         <td className="px-4 text-nowrap py-2">{item.role}</td>
                                         <td className="px-4 text-nowrap py-2 space-x-2">
-                                            <button onClick={() => handleStatus(item?.id)} className='px-4 py-1 hover:scale-105 transition-transform font-semibold rounded-lg bg-primary text-white'>{item.user_status == "BLOCKED" ? "Active" : "Block"}</button>
+                                            <button onClick={() => handleStatus(item?.id)} className='px-4 py-1 hover:scale-105 transition-transform font-semibold rounded-lg bg-primary text-white'>{item.status == "BLOCKED" ? "Active" : "Block"}</button>
                                             <button onClick={() => route.push(`/needers/${item?.id}`)} className='px-4 py-1 hover:scale-105 transition-transform font-semibold rounded-lg bg-primary text-white'>View</button>
                                         </td>
 
@@ -64,6 +66,7 @@ const UserTable = ({ userData, isLoading, serial }: { userData: UserInterFace[],
                         </tbody>
                     </table>
             }
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

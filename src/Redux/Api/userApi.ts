@@ -38,7 +38,7 @@ const userApi = baseApi.injectEndpoints({
         userStatusUpdate: build.mutation({
             query: (data) => {
                 return {
-                    url: `/user/toggle-user_status/${data?.id}`,
+                    url: `/user/status/${data?.id}`,
                     method: "PUT",
                 }
             },

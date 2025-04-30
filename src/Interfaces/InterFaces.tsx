@@ -3,7 +3,7 @@ export interface UserInterFace {
     name: string
     email: string
     role: string
-    user_status: string
+    status: string
     id: string
 }
 
